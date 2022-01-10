@@ -8,10 +8,11 @@ class SimpleModel:
     def predict(self, data):
         city = ""
         for col in data.columns:
-            if col.find("city_") != 1 and data[col] == 1:
+            if col.find("city_") != -1 and (data[col] == 1).bool():
                 city = col
-                
-        return predict_by_city(city)
+        if not city:
+            city = "else"
+        return self.predict_by_city(city)
         
     def predict_by_city(self, city):
         return self._cities_mean_time[city]
@@ -21,4 +22,8 @@ class SimpleModel:
         newObject = {}
         for i in self._cities_mean_time:
             newObject[i["city"]] = i["mean"]
+        res = 0
+        for val in newObject.values():
+            res += val
+        newObject["else"] =  res / len(newObject)
         self._cities_mean_time = newObject
