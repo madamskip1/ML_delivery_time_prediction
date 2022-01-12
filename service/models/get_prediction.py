@@ -4,6 +4,8 @@ from simple_model import *
 from sklearn.ensemble import RandomForestRegressor
 from joblib import load
 
+import pandas as pd
+import datetime
 
 def get_model_prediction(model, data):
 
@@ -15,3 +17,13 @@ def get_model_prediction(model, data):
         time = model.predict(data)[0]
 
     return time
+
+def get_date(data, p):
+
+    time = pd.to_datetime(data["purchase_timestamp"])
+    hours_to_add = datetime.timedelta(hours = p)
+    p_date = time + hours_to_add
+
+    p_date = p_date.strftime("%b-%d-%Y %H")
+
+    return p_date
