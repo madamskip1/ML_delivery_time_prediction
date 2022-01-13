@@ -21,7 +21,7 @@ class DeliveryTime(Resource):
             p = get_model_prediction(model, df)
 
             p_date = get_date(data, p)
-            mess = p_date
+            mess = "Przewidywany czas dostawy: " + p_date
             write_log(data, model, p_date)
 
         else:

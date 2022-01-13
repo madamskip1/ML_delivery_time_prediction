@@ -24,6 +24,6 @@ def get_date(data, p):
     hours_to_add = datetime.timedelta(hours = p)
     p_date = time + hours_to_add
 
-    p_date = p_date.strftime("%b-%d-%Y %H")
+    p_date = p_date.strftime("%d-%b-%Y %H:00")
 
     return p_date

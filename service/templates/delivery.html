@@ -9,49 +9,48 @@
         <header>
             <div>
                 <h1> 
-                    Delivery data:
+                    Delivery data prediction:
                 </h1>
             </div>
         </header>
         
         <div>
-            <form id="formsStyle" >
-                <div>
-                    <label>City</label>
-                    <input id="txtCity" type="text" name="city" placeholder="city">
-                </div>
+            <form id="formsStyle">
+				<div style="margin:10px">
+					<div style="padding-bottom: 5px">
+						<label>City</label>
+						<input id="txtCity" type="text" name="city" placeholder="city">
+					</div>
 
-                <div>
-                    <label>Delivery company</label>
-                    <select id="txtDeliveryCompany" name="delivery_company">
-                        <option value="360">360</option>
-                        <option value="516">516</option>
-                        <option value="620">620</option>
-                      </select>
-                </div>
+					<div style="padding-bottom: 5px">
+						<label>Delivery company</label>
+						<select id="txtDeliveryCompany" name="delivery_company">
+							<option value="360">360</option>
+							<option value="516">516</option>
+							<option value="620">620</option>
+						  </select>
+					</div>
+					
+						<div style="padding-bottom: 5px">
+							<label>Purchase time</label>
+							<input id="txtPurchaseTime"  type="datetime-local" name="purchase_time">
 
-                
-                    <div>
-                        <label>Purchase time</label>
-                        <input id="txtPurchaseTime"  type="datetime-local" name="purchase_time">
-
-                    </div>
+						</div>
 
 
-                    <div>
-                        <label>Model type</label>
-                        <select id="txtModel" name="gender">
-                            <option value="0">Simple model</option>
-                            <option value="1">Random forest</option>
-                        </select>
-                    </div>
-                    <button type="button" onclick="predictDelivery()">Delivery date </button>
+						<div style="padding-bottom: 5px">
+							<label>Model type</label>
+							<select id="txtModel" name="gender">
+								<option value="0">Simple model</option>
+								<option value="1">Random forest</option>
+							</select>
+						</div>
+					</div>
+					
+                    <button type="button" onclick="predictDelivery()">Predict delivery date</button>
                     <button type="button" onclick="resetForm()" value="Reset"> Reset </button>
             </form>
         </div>
-        
-		
-
         </div>
     </body>
     <script src="{{url_for('static', filename='delivery.js')}}">
